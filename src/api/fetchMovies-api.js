@@ -48,7 +48,7 @@ import axios from 'axios';
         let url = `${BASE_URL}?api_key=${KEY}&query=${query}`;
           
          const movie  = await axios.get(url); 
-     console.log(movie.data.original_title);
+    
          return movie;         
      
     }

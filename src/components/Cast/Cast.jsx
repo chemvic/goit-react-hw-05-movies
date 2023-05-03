@@ -8,6 +8,8 @@ const Cast = () => {
     const [casts, setCast]= useState([]);
     const { movieId } = useParams();
     const [error, setError] = useState(null);
+    const IMAGES_BASE_URL = 'https://image.tmdb.org/t/p/w200/';
+
 
     useEffect(()=>{
 
@@ -41,7 +43,7 @@ const Cast = () => {
     <ul>
     {casts.map(cast=>{return(
         <li key={cast.id}>
-            <img src={cast.profile_path} alt={cast.name} className={css.castImage}></img>
+            <img src={IMAGES_BASE_URL + cast.profile_path} alt={cast.name} className={css.castImage}></img>
             <p>{cast.name}</p>
             <p>{cast.character}</p>
         </li>

@@ -1,11 +1,12 @@
 import { useState, useEffect} from 'react';
-import { Link,  useParams, useLocation } from 'react-router-dom';
+import { Link,  useLocation } from 'react-router-dom';
 import API from "../../api/fetchMovies-api";
 import css from "./Home.module.css";
 
 const Home = ()=> {
     const [movies, setMovies]= useState([]);
     const [error, setError] = useState(null);
+    const location = useLocation();
 
     useEffect(()=>{
 
@@ -42,7 +43,7 @@ const Home = ()=> {
           {movies.map(({original_title, id}) =>{
         return (
             <li key={id}>
-            <Link to={`movies/${id}`} >
+            <Link to={`movies/${id}`} state={{ from: location }}>
               {original_title}
             </Link>
           </li>   
@@ -50,7 +51,7 @@ const Home = ()=> {
     })} 
 
     </ul>
-{/* // state={{ from: location }} */}
+
 
 
 </div>
