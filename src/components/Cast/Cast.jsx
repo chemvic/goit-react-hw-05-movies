@@ -38,7 +38,7 @@ const Cast = () => {
        
       },[movieId]);
 
-
+     
     return(
     <ul>
     {casts.map(cast=>{return(

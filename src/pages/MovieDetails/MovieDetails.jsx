@@ -10,7 +10,6 @@ const MovieDetails = () => {
     const { movieId } = useParams();
     const [movie, setMovie] = useState({});
     const [error, setError] = useState(null);
-    // const [genres, setGenres]= useState('');
     const IMAGES_BASE_URL = 'https://image.tmdb.org/t/p/w200/';
    
 
@@ -28,8 +27,7 @@ const MovieDetails = () => {
             //   );
             }
               setMovie(movie.data);
-        //  setGenres(movie.genres.map(genre=>genre.name)); 
-        // genresMaking();
+ 
         
 
           } 
@@ -40,29 +38,25 @@ const MovieDetails = () => {
      }     
 
         }
-        // const genresMaking=()=>{
-        // const genresArr =movie.genres.map(genre=>genre.name).join(", ");
-        // setGenres(genresArr);
-        // }
+     
         fetchMovie();
     
       },[movieId]);
 
-                        // const genres=async() =>{return await((movie.genres).map(genre=>genre.name).join(", "))}; 
-
-                        // const { genres } = movie;
-    return(
+        const { genres, original_title,vote_average, overview, poster_path  } = movie;
+   
+        return(
 
         <>
         <Link to={backLinkLocationRef.current}>Go back</Link>
-        <img src={IMAGES_BASE_URL + movie.poster_path} alt={movie.original_title}/>
+        <img src={IMAGES_BASE_URL + poster_path} alt={original_title}/>
 
-        <h1> {movie.original_title}</h1>
-        <p>User score: {movie.vote_average*10}%</p>
+        <h1> {original_title}</h1>
+        <p>User score: {vote_average*10}%</p>
         <h2>Overview</h2>
-        <p>{movie.overview}</p>
+        <p>{overview}</p>
         <h3>Genres</h3>
-        {(movie.genres)&&<p>{(movie.genres).map(genre=>genre.name).join(", ")}</p>}
+        {(genres)&&<p>{(genres).map(genre=>genre.name).join(", ")}</p>}
         
 
         <ul>
