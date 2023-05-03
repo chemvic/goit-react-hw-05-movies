@@ -62,7 +62,8 @@ const MovieDetails = () => {
         <h2>Overview</h2>
         <p>{movie.overview}</p>
         <h3>Genres</h3>
-        {/* <p>{(movie.genres).map(genre=>genre.name).join(", ")}</p> */}
+        {(movie.genres)&&<p>{(movie.genres).map(genre=>genre.name).join(", ")}</p>}
+        
 
         <ul>
           <li>

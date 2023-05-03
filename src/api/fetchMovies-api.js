@@ -6,7 +6,7 @@ import axios from 'axios';
         let url = `${BASE_URL}?api_key=${KEY}`;
           
          const movies  = await axios.get(url); 
-     console.log(movies.data.results);
+     
 
          return movies;         
      
@@ -18,7 +18,7 @@ import axios from 'axios';
         let url = `${BASE_URL}?api_key=${KEY}`;
           
          const movie  = await axios.get(url); 
-     console.log(movie);
+     
          return movie;         
      
     }
@@ -28,7 +28,7 @@ import axios from 'axios';
         let url = `${BASE_URL}?api_key=${KEY}`;
           
          const cast  = await axios.get(url); 
-     console.log(cast);
+     
          return cast;         
      
     }
@@ -38,11 +38,12 @@ import axios from 'axios';
         let url = `${BASE_URL}?api_key=${KEY}`;
           
          const reviews  = await axios.get(url); 
-     console.log(reviews);
+    
          return reviews;         
      
     }
     const fetchMoviesByQuery=async (query) =>{
+        if (query === "") return;
           const BASE_URL = `https://api.themoviedb.org/3/search/movie`;
         const KEY = "275907f385c33d24dbe69faf1e070b83";
         let url = `${BASE_URL}?api_key=${KEY}&query=${query}`;
