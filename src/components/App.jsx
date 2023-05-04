@@ -1,27 +1,18 @@
 
 import { Routes, Route } from "react-router-dom";
-import SharedLayout from "./SharedLayout";
-import Home from "../pages/Home";
-import Movies from "../pages/Movies";
-import MovieDetails from "../pages/MovieDetails";
-import Cast from "./Cast";
-import Reviews from "./Reviews";
+import {lazy} from 'react';
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import SharedLayout from "./SharedLayout";
+const Movies =lazy(()=>import("../pages/Movies"));
+const MovieDetails =lazy(()=>import("../pages/MovieDetails"));
+const Cast =lazy(()=>import("./Cast"));
+const Reviews =lazy(()=>import("./Reviews"));
+const Home =lazy(()=>import("../pages/Home"));
 
  const App = () => {
   return (
-    <div
-    //   style={{
-    //     // height: '100vh',
-    //     display: 'flex',
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-    //     fontSize: 40,
-    //     color: '#010101'
-    //   }}
-    >
+    <div>
  <ToastContainer autoClose={1000}/>
     <Routes>
       <Route path="/" element={<SharedLayout />}>

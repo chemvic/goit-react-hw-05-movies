@@ -7,13 +7,14 @@ const SharedLayout =( ) => {
 
     return(
         <>
-        <header>
-             <nav>
-        <li>
-                  <NavLink to="/">Home</NavLink>
+        <container className={css.container}>
+        <header className={css.header}>
+             <nav className={css.nav}>
+        <li  className={css.link}>
+                  <NavLink to="/" activeClassName={css.activeLink}>Home</NavLink>
         </li>
-        <li>
-                  <NavLink to="/movies">Movies</NavLink>
+        <li  className={css.link}>
+                  <NavLink to="/movies" activeClassName={css.activeLink}>Movies</NavLink>
         </li>
       </nav>
         </header>
@@ -22,7 +23,7 @@ const SharedLayout =( ) => {
           <Outlet />
         </Suspense> 
         </main>
-          
+        </container>  
         </>
      
 

@@ -26,18 +26,16 @@ const MovieDetails = () => {
                 "No images by your query"
               );
             }
-              setMovie(movie.data);
- 
-        
+              setMovie(movie.data);       
 
           } 
           catch (error) {
            setError(error);
-          } finally { 
-
-     }     
-
+          } 
         }
+        if(movieId===''){
+            return;
+          }
      
         fetchMovie();
     
