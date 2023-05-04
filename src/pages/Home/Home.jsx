@@ -1,6 +1,8 @@
 import { useState, useEffect} from 'react';
 import { Link,  useLocation } from 'react-router-dom';
 import API from "../../api/fetchMovies-api";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import css from "./Home.module.css";
 
 const Home = ()=> {
@@ -11,15 +13,13 @@ const Home = ()=> {
     useEffect(()=>{
 
         const fetchMovies=async()=>{
-        //   setIsLoading(true);
           try {
             const movies= await API.fetchPopularMovies();
             
             if (movies.data.results.length === 0) {
-                alert("No images by your query");
-            //   return toast.error(
-            //     "No images by your query"
-            //   );
+              return toast.error(
+                "No images by your query"
+              );
             }
               setMovies( movies.data.results);
              
@@ -27,7 +27,6 @@ const Home = ()=> {
           } catch (error) {
            setError(error);
           } finally {
-        //    setIsLoading(false);   
      }
         }
         
@@ -38,7 +37,7 @@ const Home = ()=> {
     return(
 <div>
     <h1>Trending today</h1>
-
+   
     <ul>
           {movies.map(({original_title, id}) =>{
         return (

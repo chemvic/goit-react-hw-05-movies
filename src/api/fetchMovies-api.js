@@ -38,8 +38,8 @@ import axios from 'axios';
         let url = `${BASE_URL}?api_key=${KEY}`;
           
          const reviews  = await axios.get(url); 
-    
-         return reviews;         
+   
+         return reviews;      
      
     }
     const fetchMoviesByQuery=async (query) =>{

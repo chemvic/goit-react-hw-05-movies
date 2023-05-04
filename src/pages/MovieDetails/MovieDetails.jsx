@@ -1,7 +1,8 @@
 import { Suspense, useRef, useEffect, useState } from 'react';
 import { Link, Outlet, useParams, useLocation } from 'react-router-dom';
 import API from "../../api/fetchMovies-api";
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import css from "./MovieDetails.module.css";
 
 const MovieDetails = () => {
@@ -21,10 +22,9 @@ const MovieDetails = () => {
             const movie= await API.fetchMoviesById(movieId);
             
             if (movie === {}) {
-                alert("No images by ID");
-            //   return toast.error(
-            //     "No images by your query"
-            //   );
+              return toast.error(
+                "No images by your query"
+              );
             }
               setMovie(movie.data);
  
@@ -52,7 +52,7 @@ const MovieDetails = () => {
         <img src={IMAGES_BASE_URL + poster_path} alt={original_title}/>
 
         <h1> {original_title}</h1>
-        <p>User score: {vote_average*10}%</p>
+        <p>User score: {Math.round(vote_average*10)}%</p>
         <h2>Overview</h2>
         <p>{overview}</p>
         <h3>Genres</h3>

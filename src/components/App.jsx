@@ -6,6 +6,8 @@ import Movies from "../pages/Movies";
 import MovieDetails from "../pages/MovieDetails";
 import Cast from "./Cast";
 import Reviews from "./Reviews";
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
  const App = () => {
@@ -20,7 +22,7 @@ import Reviews from "./Reviews";
     //     color: '#010101'
     //   }}
     >
- 
+ <ToastContainer autoClose={1000}/>
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<Home/>}/>

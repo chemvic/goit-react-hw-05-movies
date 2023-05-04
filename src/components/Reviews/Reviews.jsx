@@ -1,5 +1,5 @@
 import {  useEffect, useState } from 'react';
-import {  useParams, useLocation } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 import API from "../../api/fetchMovies-api";
 import css from "./Reviews.module.css";
 
@@ -38,7 +38,8 @@ const Reviews = () => {
 
 
     return(
-        <ul>
+    <>
+    {(reviews.length===0)? <p>We don`t have any reviews for this movie</p> : <ul>
         {reviews.map(review=>{return(
             <li key={review.id}>
                 <h3>Author: {review.author}</h3>
@@ -46,7 +47,10 @@ const Reviews = () => {
             </li>
         )})
         }
-        </ul>
+        </ul>}
+    </>
+        
+      
     )
 };
 
