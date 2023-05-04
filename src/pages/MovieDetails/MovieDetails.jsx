@@ -45,19 +45,27 @@ const MovieDetails = () => {
    
         return(
 
-        <>
-        <Link to={backLinkLocationRef.current}>Go back</Link>
-        <img src={IMAGES_BASE_URL + poster_path} alt={original_title}/>
+        <div className={css.container}>
+        <div className={css.informationMain}>
+            <div className={css.movieImageBlock}>
+                 <Link to={backLinkLocationRef.current} className={css.backBtn}>Go back</Link>
+        <img src={IMAGES_BASE_URL + poster_path} alt={original_title} className={css.movieImage}/>
+            </div>
 
-        <h1> {original_title}</h1>
+            <div className={css.infoBlock}>
+                 <h1> {original_title}</h1>
         <p>User score: {Math.round(vote_average*10)}%</p>
-        <h2>Overview</h2>
-        <p>{overview}</p>
-        <h3>Genres</h3>
-        {(genres)&&<p>{(genres).map(genre=>genre.name).join(", ")}</p>}
         
+         {(overview!=='')&&<> <h2>Overview</h2>
+    <p>{overview}</p></>}
+        {(genres)&&<><h3>Genres</h3> <p>{(genres).map(genre=>genre.name).join(", ")}</p></>}
+            </div>        
 
-        <ul>
+       
+        </div>
+        <div className={css.informationAdd}>
+            <h4>Additional information</h4>
+           <ul>
           <li>
             <Link to="cast">Cast</Link>
           </li>
@@ -67,8 +75,13 @@ const MovieDetails = () => {
         </ul>
         <Suspense fallback={<div>LOADING ADDITIONAL INFORMATION...</div>}>
           <Outlet />
-        </Suspense>
-      </>
+        </Suspense>  
+        </div>
+      
+        
+
+       
+      </div>
     )
 };
 

@@ -48,7 +48,7 @@ const Movies = () => {
       };
     
     return(
-<div>
+<div className={css.container}>
 <input
         type="text"
         value={query}

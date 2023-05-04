@@ -1,0 +1,27 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+.informationMain{
+    display: flex;
+    margin-bottom: 40px;
+   
+}
+.movieImageBlock{
+    margin-right: 20px;
+    display: flexbox;
+}
+.backBtn{
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.movieImage{
+    max-width: 600px;
+    height: auto;
+
+}
+.informationAdd{
+    /* margin-left: 20px; */
+    /* border:solid 2px grey */
+}

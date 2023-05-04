@@ -18,7 +18,7 @@ import axios from 'axios';
         let url = `${BASE_URL}?api_key=${KEY}`;
           
          const movie  = await axios.get(url); 
-     
+   
          return movie;         
      
     }

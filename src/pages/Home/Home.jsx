@@ -35,7 +35,7 @@ const Home = ()=> {
       },[]);
 
     return(
-<div>
+<div className={css.container}>
     <h1>Trending today</h1>
    
     <ul>
