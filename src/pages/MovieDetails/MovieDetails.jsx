@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import css from "./MovieDetails.module.css";
 import { FaLongArrowAltLeft } from "react-icons/fa";
-
+import Loader from "../../components/Loader";
 
 const MovieDetails = () => {
     const location = useLocation();
@@ -13,13 +13,14 @@ const MovieDetails = () => {
     const { movieId } = useParams();
     const [movie, setMovie] = useState({});
     const [error, setError] = useState(null);
+    const[ isLoading, setIsLoading ]=useState(false);
     const IMAGES_BASE_URL = 'https://image.tmdb.org/t/p/w200/';
    
 
     useEffect(()=>{
 
         const fetchMovie= async() =>{
-           
+          setIsLoading(true);
           try {
             const movie= await API.fetchMoviesById(movieId);
             
@@ -33,7 +34,9 @@ const MovieDetails = () => {
           } 
           catch (error) {
            setError(error);
-          } 
+          }  finally {
+            setIsLoading(false);    
+          }
         }
         if(movieId===''){
             return;
@@ -46,9 +49,12 @@ const MovieDetails = () => {
         const { genres, title, original_title,vote_average, overview, poster_path  } = movie;
    
         return(
+         
 
         <div className={css.container}>
-        <div className={css.informationMain}>
+           {(isLoading) && 
+            (<Loader visible={true}/>)}
+           {(movie && !isLoading)&&(<><div className={css.informationMain}>
             <div className={css.movieImageBlock}>
               
         <FaLongArrowAltLeft style={{color: "#0077cc",}}/><Link to={backLinkLocationRef.current} className={css.backBtn}>Go back</Link>
@@ -81,7 +87,8 @@ const MovieDetails = () => {
         </div>
         <Suspense fallback={<div>LOADING ADDITIONAL INFORMATION...</div>}>
           <Outlet />
-        </Suspense>  
+        </Suspense> </> )} 
+        
         
         {error && (
          <p>"Something went wrong((("</p>
