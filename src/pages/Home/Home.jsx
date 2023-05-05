@@ -37,8 +37,8 @@ const Home = ()=> {
     return(
 <div className={css.container}>
     <h1>Trending today</h1>
-   
-    <ul>
+   {(movies.length>0 && !error)&&
+   <ul>
           {movies.map(({original_title, id}) =>{
         return (
             <li key={id}>
@@ -49,7 +49,7 @@ const Home = ()=> {
         )
     })} 
 
-    </ul>
+    </ul>}    
     {error && (
          <p>"Something went wrong((("</p>
         )}

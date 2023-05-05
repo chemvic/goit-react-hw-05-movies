@@ -27,8 +27,7 @@ const Movies = () => {
                 "No movies by your query"
               );
             }
-              setMovies( movies.data.results);
-             
+              setMovies( movies.data.results);             
             
           } catch (error) {
            setError(error);
@@ -48,9 +47,7 @@ const Movies = () => {
         setSearchParams(params);
         setInputValue('');
       };
-      // const handleSearch=()=>{
-      //   updateQueryString(inputValue);
-      // }
+   
     
     return(
 <div className={css.container}>
@@ -64,7 +61,7 @@ const Movies = () => {
   </div>
   
 
-      {(query)&&(<ul>
+      {(query && !error)&&(<ul>
           {movies.map(({original_title, id}) =>{
         return (
             <li key={id}>

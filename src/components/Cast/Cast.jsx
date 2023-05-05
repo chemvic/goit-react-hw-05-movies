@@ -33,7 +33,7 @@ const Cast = () => {
      
     return(
         <>
-        {(filmInfo.length===0)? <p>We don`t have any casts for this movie</p> :    <ul>
+        {(filmInfo.length===0 && !error)? <p>We don`t have any casts for this movie</p> :    <ul>
     {filmInfo.map(cast=>{return(
         <li key={cast.id}>
             <img src={IMAGES_BASE_URL + cast.profile_path} alt={cast.name} className={css.castImage}></img>

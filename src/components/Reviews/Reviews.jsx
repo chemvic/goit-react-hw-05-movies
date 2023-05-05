@@ -32,7 +32,7 @@ const Reviews = () => {
 
     return(
     <>
-    {(filmInfo.length===0)? <p>We don`t have any reviews for this movie</p> : <ul>
+    {(filmInfo.length===0 && !error)? <p>We don`t have any reviews for this movie</p> : <ul>
         {filmInfo.map(review=>{return(
             <li key={review.id}>
                 <h3>Author: {review.author}</h3>
