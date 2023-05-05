@@ -78,10 +78,11 @@ const MovieDetails = () => {
             <Link to="reviews">Reviews</Link>
           </li>
         </ul>
+        </div>
         <Suspense fallback={<div>LOADING ADDITIONAL INFORMATION...</div>}>
           <Outlet />
         </Suspense>  
-        </div>
+        
         {error && (
          <p>"Something went wrong((("</p>
         )}

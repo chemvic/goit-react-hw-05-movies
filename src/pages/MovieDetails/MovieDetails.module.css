@@ -20,5 +20,9 @@
 .movieImage{
     max-width: 600px;
     height: auto;
-
+}
+.informationAdd{
+    
+    border-top: solid 1px hsl(0, 1%, 62%);
+    border-bottom: solid 1px hsl(0, 1%, 62%);
 }

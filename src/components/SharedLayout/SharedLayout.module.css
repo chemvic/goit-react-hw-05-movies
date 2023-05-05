@@ -1,7 +1,7 @@
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    outline: solid 1px grey;
+    padding: 0 20px;
   }
   
   .header {

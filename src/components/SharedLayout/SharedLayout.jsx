@@ -7,8 +7,8 @@ const SharedLayout =( ) => {
 
     return(
         <>
-      
-        <header className={css.header}>
+        <div className={css.container}>
+          <header className={css.header}>
              <nav className={css.nav}>
         <li  className={css.link}>
                   <NavLink to="/" style={({ isActive }) =>({color: isActive ? 'green' : 'blue'})}>Home</NavLink>
@@ -18,6 +18,9 @@ const SharedLayout =( ) => {
         </li>
       </nav>
         </header>
+        </div>
+      
+        
         <main>
         <Suspense fallback={<div>Loading...</div>}>
           <Outlet />
