@@ -39,11 +39,11 @@ const Home = ()=> {
     <h1>Trending today</h1>
    {(movies.length>0 && !error)&&
    <ul>
-          {movies.map(({original_title, id}) =>{
+          {movies.map(({title, original_title, id}) =>{
         return (
             <li key={id}>
             <Link to={`movies/${id}`} state={{ from: location }}>
-              {original_title}
+              {title||original_title}
             </Link>
           </li>   
         )

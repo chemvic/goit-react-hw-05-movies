@@ -43,7 +43,7 @@ const MovieDetails = () => {
     
       },[movieId]);
 
-        const { genres, original_title,vote_average, overview, poster_path  } = movie;
+        const { genres, title, original_title,vote_average, overview, poster_path  } = movie;
    
         return(
 
@@ -54,11 +54,11 @@ const MovieDetails = () => {
         <FaLongArrowAltLeft style={{color: "#0077cc",}}/><Link to={backLinkLocationRef.current} className={css.backBtn}>Go back</Link>
              
           
-        <img src={IMAGES_BASE_URL + poster_path} alt={original_title} className={css.movieImage}/>
+        <img src={IMAGES_BASE_URL + poster_path} alt={title||original_title} className={css.movieImage}/>
             </div>
 
             <div className={css.infoBlock}>
-                 <h1> {original_title}</h1>
+                 <h1> {title||original_title}</h1>
         <p>User score: {Math.round(vote_average*10)}%</p>
         
          {(overview!=='')&&<> <h2>Overview</h2>

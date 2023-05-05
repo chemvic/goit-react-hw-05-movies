@@ -62,11 +62,11 @@ const Movies = () => {
   
 
       {(query && !error)&&(<ul>
-          {movies.map(({original_title, id}) =>{
+          {movies.map(({title, original_title, id}) =>{
         return (
             <li key={id}>
             <Link to={`${id}`} state={{ from: location }}>
-              {original_title}
+              {title||original_title}
             </Link>
           </li>   
         )
