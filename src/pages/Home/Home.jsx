@@ -18,7 +18,7 @@ const Home = ()=> {
             
             if (movies.data.results.length === 0) {
               return toast.error(
-                "No images by your query"
+                "No popular movies in the database"
               );
             }
               setMovies( movies.data.results);

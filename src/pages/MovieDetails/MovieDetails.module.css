@@ -16,12 +16,9 @@
     display: inline-block;
     margin-bottom: 10px;
 }
+
 .movieImage{
     max-width: 600px;
     height: auto;
 
-}
-.informationAdd{
-    /* margin-left: 20px; */
-    /* border:solid 2px grey */
 }

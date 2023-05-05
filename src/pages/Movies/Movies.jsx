@@ -2,7 +2,6 @@ import { useState, useEffect} from 'react';
 import { Link,  useSearchParams, useLocation } from 'react-router-dom';
 import API from "../../api/fetchMovies-api";
 import { toast } from 'react-toastify';
-// import debounce from 'lodash.debounce';
 import 'react-toastify/dist/ReactToastify.css';
 import css from "./Movies.module.css";
 
@@ -11,6 +10,8 @@ const Movies = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const [movies, setMovies]= useState([]);
     const [error, setError] = useState(null);
+    const [inputValue, setInputValue] = useState('');
+
     const location = useLocation();
     const query = searchParams.get("query")??"";
 
@@ -23,7 +24,7 @@ const Movies = () => {
             
             if (movies.data.results.length === 0) {
               return toast.error(
-                "No images by your query"
+                "No movies by your query"
               );
             }
               setMovies( movies.data.results);
@@ -45,17 +46,23 @@ const Movies = () => {
       const updateQueryString = (query) => {
         const params = query !== "" ? { query } : {};
         setSearchParams(params);
+        setInputValue('');
       };
+      // const handleSearch=()=>{
+      //   updateQueryString(inputValue);
+      // }
     
     return(
 <div className={css.container}>
+  <div className={css.inputBlock}>
 <input
         type="text"
-        value={query}
-        onChange={(e) => updateQueryString(e.target.value )}
-
-
+        value={inputValue}
+        onChange={(e) =>setInputValue(e.target.value )}
       />
+      <button type="button" className={css.inputBtn} onClick={()=>updateQueryString(inputValue)}>Search</button>
+  </div>
+  
 
       {(query)&&(<ul>
           {movies.map(({original_title, id}) =>{

@@ -4,6 +4,8 @@ import API from "../../api/fetchMovies-api";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import css from "./MovieDetails.module.css";
+import { FaLongArrowAltLeft } from "react-icons/fa";
+
 
 const MovieDetails = () => {
     const location = useLocation();
@@ -48,7 +50,10 @@ const MovieDetails = () => {
         <div className={css.container}>
         <div className={css.informationMain}>
             <div className={css.movieImageBlock}>
-                 <Link to={backLinkLocationRef.current} className={css.backBtn}>Go back</Link>
+              
+        <FaLongArrowAltLeft style={{color: "#0077cc",}}/><Link to={backLinkLocationRef.current} className={css.backBtn}>Go back</Link>
+             
+          
         <img src={IMAGES_BASE_URL + poster_path} alt={original_title} className={css.movieImage}/>
             </div>
 

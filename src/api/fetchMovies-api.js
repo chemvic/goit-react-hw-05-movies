@@ -22,26 +22,18 @@ import axios from 'axios';
          return movie;         
      
     }
-    const fetchCastById=async (movieId) =>{
-          const BASE_URL = `https://api.themoviedb.org/3/movie/${movieId}/credits`;
-        const KEY = "275907f385c33d24dbe69faf1e070b83";
-        let url = `${BASE_URL}?api_key=${KEY}`;
-          
-         const cast  = await axios.get(url); 
-     
-         return cast;         
-     
+
+    const fetchInfoById=async (movieId, movieInfo) =>{
+      const BASE_URL = `https://api.themoviedb.org/3/movie/${movieId}/${movieInfo}`;
+    const KEY = "275907f385c33d24dbe69faf1e070b83";
+    let url = `${BASE_URL}?api_key=${KEY}`;
+      
+     const filmInfo  = await axios.get(url); 
+    
+     return filmInfo;         
+    
     }
-    const fetchReviewsById=async (movieId) =>{
-          const BASE_URL = `https://api.themoviedb.org/3/movie/${movieId}/reviews`;
-        const KEY = "275907f385c33d24dbe69faf1e070b83";
-        let url = `${BASE_URL}?api_key=${KEY}`;
-          
-         const reviews  = await axios.get(url); 
-   
-         return reviews;      
-     
-    }
+
     const fetchMoviesByQuery=async (query) =>{
         if (query === "") return;
           const BASE_URL = `https://api.themoviedb.org/3/search/movie`;
@@ -56,5 +48,6 @@ import axios from 'axios';
  
 
 
-const API={fetchPopularMovies, fetchMoviesById, fetchMoviesByQuery, fetchCastById, fetchReviewsById};
+const API={fetchPopularMovies, fetchMoviesById, fetchMoviesByQuery,  fetchInfoById};
 export default API;
+
