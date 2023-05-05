@@ -1,5 +1,5 @@
-import {  useEffect, useState, Suspense } from 'react';
-import {  useParams, useLocation } from 'react-router-dom';
+import {  useEffect, useState } from 'react';
+import {  useParams } from 'react-router-dom';
 import API from "../../api/fetchMovies-api";
 import css from "./Cast.module.css";
 
@@ -43,6 +43,9 @@ const Cast = () => {
     )})
     }
     </ul>}
+    {error && (
+         <p>"Something went wrong((("</p>
+        )}
         </>
 
     

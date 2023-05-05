@@ -82,6 +82,9 @@ const MovieDetails = () => {
           <Outlet />
         </Suspense>  
         </div>
+        {error && (
+         <p>"Something went wrong((("</p>
+        )}
       
         
 

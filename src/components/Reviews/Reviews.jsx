@@ -1,7 +1,7 @@
 import {  useEffect, useState } from 'react';
 import {  useParams } from 'react-router-dom';
 import API from "../../api/fetchMovies-api";
-import css from "./Reviews.module.css";
+
 
 const Reviews = () => {
     const [filmInfo, setFilmInfo]= useState([]);
@@ -41,6 +41,9 @@ const Reviews = () => {
         )})
         }
         </ul>}
+        {error && (
+         <p>"Something went wrong((("</p>
+        )}
     </>
         
       

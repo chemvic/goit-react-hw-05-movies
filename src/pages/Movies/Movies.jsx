@@ -77,6 +77,9 @@ const Movies = () => {
 
     </ul>)
       }
+      {error && (
+         <p>"Something went wrong((("</p>
+        )}
 
      </div>
     )
