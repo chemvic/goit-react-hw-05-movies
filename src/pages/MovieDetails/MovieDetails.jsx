@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import css from "./MovieDetails.module.css";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import Loader from "../../components/Loader";
+import DEFAULT_POSTER from "../../images/DEFAULT_POSTER.jpg";
 
 const MovieDetails = () => {
     const location = useLocation();
@@ -60,7 +61,8 @@ const MovieDetails = () => {
         <FaLongArrowAltLeft style={{color: "#0077cc",}}/><Link to={backLinkLocationRef.current} className={css.backBtn}>Go back</Link>
              
           
-        <img src={IMAGES_BASE_URL + poster_path} alt={title||original_title} className={css.movieImage}/>
+        <img src={poster_path ? IMAGES_BASE_URL + poster_path : DEFAULT_POSTER} alt={title||original_title} className={css.movieImage}/>
+        {/* <img src={IMAGES_BASE_URL + poster_path} alt={title||original_title} className={css.movieImage}/> */}
             </div>
 
             <div className={css.infoBlock}>
