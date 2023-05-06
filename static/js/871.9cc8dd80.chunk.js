@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[871],{871:function(e,t,n){n.r(t),n.d(t,{default:function(){return o}});var a="NotFound_massege__3POCH",r=n(184),o=function(){return(0,r.jsx)("div",{className:a,children:(0,r.jsx)("h1",{children:"Page on this path not found"})})}}}]);
+//# sourceMappingURL=871.9cc8dd80.chunk.js.map
