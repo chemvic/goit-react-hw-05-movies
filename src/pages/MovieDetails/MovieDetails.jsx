@@ -14,7 +14,7 @@ const MovieDetails = () => {
     const { movieId } = useParams();
     const [movie, setMovie] = useState({});
     const [error, setError] = useState(null);
-    const[ isLoading, setIsLoading ]=useState(false);
+    const [ isLoading, setIsLoading ]=useState(false);
     const IMAGES_BASE_URL = 'https://image.tmdb.org/t/p/w200/';
    
 
@@ -62,7 +62,6 @@ const MovieDetails = () => {
              
           
         <img src={poster_path ? IMAGES_BASE_URL + poster_path : DEFAULT_POSTER} alt={title||original_title} className={css.movieImage}/>
-        {/* <img src={IMAGES_BASE_URL + poster_path} alt={title||original_title} className={css.movieImage}/> */}
             </div>
 
             <div className={css.infoBlock}>
