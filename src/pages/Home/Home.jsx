@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import css from "./Home.module.css";
 import Loader from "../../components/Loader";
+import MoviesList from "../../components/MoviesList";
 
 const Home = ()=> {
     const [movies, setMovies]= useState([]);
@@ -46,19 +47,20 @@ const Home = ()=> {
 
     {(isLoading) && 
       (<Loader visible={true}/>)}
-   {(movies.length>0 && !error && !isLoading)&&
-   <ul>
-          {movies.map(({title, original_title, id}) =>{
-        return (
-            <li key={id}>
-            <Link to={`movies/${id}`} state={{ from: location }}>
-              {title||original_title}
-            </Link>
-          </li>   
-        )
-    })} 
+   {(movies.length>0 && !error && !isLoading)&&<MoviesList movies={movies} location={location}/>
+  //  <ul>
+  //         {movies.map(({title, original_title, id}) =>{
+  //       return (
+  //           <li key={id}>
+  //           <Link to={`movies/${id}`} state={{ from: location }}>
+  //             {title||original_title}
+  //           </Link>
+  //         </li>   
+  //       )
+  //   })} 
 
-    </ul>}    
+  //   </ul>
+    }    
     {error && (
          <p>"Something went wrong((("</p>
         )}

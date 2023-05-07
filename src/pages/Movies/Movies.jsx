@@ -1,10 +1,12 @@
 import { useState, useEffect} from 'react';
-import { Link,  useSearchParams, useLocation } from 'react-router-dom';
+import {  useSearchParams, useLocation } from 'react-router-dom';
 import API from "../../api/fetchMovies-api";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import css from "./Movies.module.css";
 import Loader from "../../components/Loader";
+import MoviesList from "../../components/MoviesList";
+
 
 const Movies = () => {  
     const [searchParams, setSearchParams] = useSearchParams();
@@ -68,19 +70,7 @@ const Movies = () => {
   {(isLoading) && 
       (<Loader visible={true}/>)}  
 
-      {(query && !error && !isLoading)&&(<ul>
-          {movies.map(({title, original_title, id}) =>{
-        return (
-            <li key={id}>
-            <Link to={`${id}`} state={{ from: location }}>
-              {title||original_title}
-            </Link>
-          </li>   
-        )
-    })} 
-
-    </ul>)
-      }
+      {(query && !error && !isLoading)&&<MoviesList movies={movies} location={location}/>}
       {error && (
          <p>"Something went wrong((("</p>
         )}
