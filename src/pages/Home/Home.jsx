@@ -1,5 +1,5 @@
 import { useState, useEffect} from 'react';
-import { Link,  useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import API from "../../api/fetchMovies-api";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -47,20 +47,7 @@ const Home = ()=> {
 
     {(isLoading) && 
       (<Loader visible={true}/>)}
-   {(movies.length>0 && !error && !isLoading)&&<MoviesList movies={movies} location={location}/>
-  //  <ul>
-  //         {movies.map(({title, original_title, id}) =>{
-  //       return (
-  //           <li key={id}>
-  //           <Link to={`movies/${id}`} state={{ from: location }}>
-  //             {title||original_title}
-  //           </Link>
-  //         </li>   
-  //       )
-  //   })} 
-
-  //   </ul>
-    }    
+   {(movies.length>0 && !error && !isLoading)&&<MoviesList movies={movies} location={location}/>}    
     {error && (
          <p>"Something went wrong((("</p>
         )}
